@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.hufeifei.mediaplayer.activity.SearchActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#ff01a9ec"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/white_search_bg"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/search_option"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:drawableEnd="@drawable/search_btn_option"
+                android:drawableRight="@drawable/search_btn_option"
+                android:paddingLeft="12dp"
+                android:paddingStart="12dp"
+                android:text="音乐"
+                android:textColor="#444"
+                android:textSize="20sp"/>
+
+            <EditText
+                android:id="@+id/search_text"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00ffffff"
+                android:lines="1"
+                android:paddingLeft="-40dp"
+                android:paddingStart="-40dp"
+                android:maxLines="1"
+                android:minLines="1"
+                android:textAlignment="center"
+                android:textColor="#444"
+                android:textColorHint="#7333"
+                android:textSize="18sp"/>
+
+            <ImageButton
+                android:id="@+id/search_go_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@null"
+                android:src="@drawable/search_btn_selector"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/search_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#6444"
+            android:dividerHeight="0.5dp"/>
+
+        <TextView
+            android:id="@+id/no_net_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="网络请求失败\n请检查网络状况"
+            android:textAlignment="center"
+            android:textColor="#555"
+            android:textSize="20sp"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="rectangle">
+            <size
+                android:width="25dp"
+                android:height="8dp"/>
+            <solid android:color="#666"/>
+            <corners android:radius="8dp"/>
+            <stroke
+                android:width="1dp"
+                android:color="#ddd"/>
+        </shape>
+    </item>
+    <item android:id="@+id/media_sys_power_level">
+        <clip android:gravity="right">
+            <shape
+                android:shape="rectangle">
+                <size
+                    android:width="25dp"
+                    android:height="8dp"/>
+                <solid android:color="#0d0"/>
+                <corners android:radius="8dp"/>
+                <stroke
+                    android:width="1dp"
+                    android:color="#ddd"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>

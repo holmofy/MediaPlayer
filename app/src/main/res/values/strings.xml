@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">飞狐播放器</string>
+    <string name="adv_url">file:///android_asset/adv_page.html</string>
+    <string name="text_novideo_tip">未找到视频资源</string>
+    <string name="text_nomusic_tip">未找到音乐资源</string>
+    <string name="xlistview_header_hint_normal">下拉刷新</string>
+    <string name="xlistview_header_hint_ready">松开刷新数据</string>
+    <string name="xlistview_header_hint_loading">正在加载...</string>
+    <string name="xlistview_header_last_time">上次更新时间：</string>
+    <string name="xlistview_footer_hint_normal">查看更多</string>
+    <string name="xlistview_footer_hint_ready">松开载入更多</string>
+    <string name="copyright">design &amp; power by hufeifei\n CopyRight © 2016</string>
+
+</resources>

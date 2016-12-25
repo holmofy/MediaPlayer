@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/media_rootView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/media_controller_top"
+        android:orientation="vertical"
+        android:padding="2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#6000"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="2dp">
+
+            <TextView
+                android:id="@+id/media_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="视频名称"
+                android:textColor="#fff"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/media_sys_power_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0%"
+                android:textColor="#fff"
+                android:textSize="12sp"/>
+
+            <ImageView
+                android:id="@+id/media_sys_power_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:src="@drawable/media_sys_power"/>
+
+            <TextView
+                android:id="@+id/media_sys_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="2dp"
+                android:text="10:00"
+                android:textColor="#fff"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="40dp">
+
+            <ImageButton
+                android:id="@+id/media_sound_btn"
+                style="@style/MediaPlayerTopButton"
+                android:src="@drawable/sound_medium_selector"/>
+
+            <SeekBar
+                android:id="@+id/media_sound_seekbar"
+                style="@style/MediaPlayerSeekBar"
+                android:progress="50"/>
+
+            <ImageButton
+                android:id="@+id/media_switch_player"
+                style="@style/MediaPlayerTopButton"
+                android:src="@drawable/btn_switch_player_selector"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/media_controller_bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="50dp">
+
+            <TextView
+                android:id="@+id/media_curr_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#eee"
+                android:textSize="14sp"/>
+
+            <SeekBar
+                android:id="@+id/media_curr_time_seekbar"
+                style="@style/MediaPlayerSeekBar"
+                android:progress="0"/>
+
+            <TextView
+                android:id="@+id/media_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00"
+                android:textColor="#eee"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/media_return_btn"
+                style="@style/MediaPlayerBottomButton"
+                android:src="@drawable/media_btn_return_selector"/>
+
+            <ImageButton
+                android:id="@+id/media_prev_btn"
+                style="@style/MediaPlayerBottomButton"
+                android:src="@drawable/media_btn_prev_selector"/>
+
+            <ImageButton
+                android:id="@+id/media_pause_btn"
+                style="@style/MediaPlayerBottomButton"
+                android:src="@drawable/media_btn_pause_selector"/>
+
+            <ImageButton
+                android:id="@+id/media_next_btn"
+                style="@style/MediaPlayerBottomButton"
+                android:src="@drawable/media_btn_next_selector"/>
+
+            <ImageButton
+                android:id="@+id/media_resize_btn"
+                style="@style/MediaPlayerBottomButton"
+                android:src="@drawable/media_btn_max_selector"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

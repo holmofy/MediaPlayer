@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingBottom="2dp"
+    android:paddingLeft="6dp"
+    android:paddingRight="2dp"
+    android:paddingTop="2dp">
+
+    <TextView
+        android:id="@+id/textTVName"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="CCTV1综合"
+        android:textColor="#666"
+        android:textSize="20sp"/>
+</LinearLayout>

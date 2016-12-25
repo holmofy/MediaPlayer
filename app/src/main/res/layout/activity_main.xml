@@ -1,0 +1,53 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/main_title_bar"/>
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- 分割线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#6999"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton_localVideo"
+            style="@style/RadioButton"
+            android:drawableTop="@drawable/local_video_radio_button_selector"
+            android:text="本地视频"/>
+
+        <RadioButton
+            android:id="@+id/radioButton_localMusic"
+            style="@style/RadioButton"
+            android:drawableTop="@drawable/local_music_radio_button_selector"
+            android:text="本地音乐"/>
+
+        <RadioButton
+            android:id="@+id/radioButton_netVideo"
+            style="@style/RadioButton"
+            android:drawableTop="@drawable/net_video_radio_button_selector"
+            android:text="网络直播"/>
+
+        <RadioButton
+            android:id="@+id/radioButton_netMusic"
+            style="@style/RadioButton"
+            android:drawableTop="@drawable/net_music_radio_button_selector"
+            android:text="音乐推送"/>
+    </RadioGroup>
+
+</LinearLayout>

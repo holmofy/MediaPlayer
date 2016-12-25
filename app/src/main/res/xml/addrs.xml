@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <type name="央视频道">
+        <address name="CCTV1-综合">
+            http://183.207.249.15/PLTV/3/224/3221225530/index.m3u8
+        </address>
+        <address name="CCTV3-综艺">
+            http://183.207.249.7/PLTV/3/224/3221225588/index.m3u8
+        </address>
+        <address name="CCTV5-体育赛事直播">
+            http://183.207.249.7/PLTV/3/224/3221225604/index.m3u8
+        </address>
+        <address name="CCTV6-电影">
+            http://183.207.249.15/PLTV/3/224/3221225548/index.m3u8
+        </address>
+        <address name="CCTV7-军事农业 高清">
+            http://183.207.249.15/PLTV/3/224/3221225546/index.m3u8
+        </address>
+        <address name="CCTV10-科教 高清">
+            http://183.207.249.7/PLTV/3/224/3221225550/index.m3u8
+        </address>
+        <address name="CCTV11-戏曲">
+            http://183.207.249.15/PLTV/3/224/3221225552/index.m3u8
+        </address>
+        <address name="CCTV12-社会与法 高清">
+            http://183.207.249.7/PLTV/3/224/3221225556/index.m3u8
+        </address>
+        <address name="CCTV15-音乐">
+            http://183.207.249.7/PLTV/3/224/3221225568/index.m3u8
+        </address>
+    </type>
+    <type name="网络电视">
+        <address name="古装剧场 高清">
+            http://183.207.249.7/PLTV/3/224/3221225527/index.m3u8
+        </address>
+        <address name="军旅剧场">
+            http://183.207.249.7/PLTV/3/224/3221225531/index.m3u8
+        </address>
+        <address name="军旅剧场 高清">
+            http://183.207.249.15/PLTV/3/224/3221225531/index.m3u8
+        </address>
+        <address name="农业致富">
+            http://183.207.249.7/PLTV/3/224/3221225537/index.m3u8
+        </address>
+        <address name="农业致富 高清">
+            http://183.207.249.15/PLTV/3/224/3221225537/index.m3u8
+        </address>
+        <address name="完美游戏">
+            http://183.207.249.7/PLTV/3/224/3221225539/index.m3u8
+        </address>
+        <address name="完美游戏 高清">
+            http://183.207.249.15/PLTV/3/224/3221225539/index.m3u8
+        </address>
+        <address name="精品体育">
+            http://183.207.249.7/PLTV/3/224/3221225543/index.m3u8
+        </address>
+        <address name="精品体育 高清">
+            http://183.207.249.15/PLTV/3/224/3221225543/index.m3u8
+        </address>
+        <address name="海外剧场">
+            http://183.207.249.7/PLTV/3/224/3221225547/index.m3u8
+        </address>
+        <address name="海外剧场 高清">
+            http://183.207.249.15/PLTV/3/224/3221225547/index.m3u8
+        </address>
+        <address name="动画王国">
+            http://183.207.249.7/PLTV/3/224/3221225555/index.m3u8
+        </address>
+        <address name="动画王国 高清">
+            http://183.207.249.15/PLTV/3/224/3221225555/index.m3u8
+        </address>
+        <address name="金牌综艺">
+            http://183.207.249.7/PLTV/3/224/3221225559/index.m3u8
+        </address>
+        <address name="金牌综艺 高清">
+            http://183.207.249.15/PLTV/3/224/3221225559/index.m3u8
+        </address>
+        <address name="惊悚悬疑">
+            http://183.207.249.7/PLTV/3/224/3221225561/index.m3u8
+        </address>
+        <address name="惊悚悬疑 高清">
+            http://183.207.249.15/PLTV/3/224/3221225561/index.m3u8
+        </address>
+    </type>
+    <type name="地方卫视">
+        <address name="安徽卫视">
+            http://183.207.249.15/PLTV/3/224/3221225634/index.m3u8
+        </address>
+        <address name="北京卫视">
+            http://183.207.249.7/PLTV/3/224/3221225574/index.m3u8
+        </address>
+        <address name="北京卫视高清">
+            http://183.207.249.15/PLTV/3/224/3221226257/index.m3u8
+        </address>
+        <address name="山东卫视">
+            http://183.207.249.7/PLTV/3/224/3221225586/index.m3u8
+        </address>
+        <address name="东南卫视">
+            http://183.207.249.7/PLTV/3/224/3221225598/index.m3u8
+        </address>
+        <address name="东南卫视 高清">
+            http://183.207.249.15/PLTV/3/224/3221225598/index.m3u8
+        </address>
+        <address name="河北卫视">
+            http://183.207.249.7/PLTV/3/224/3221225602/index.m3u8
+        </address>
+        <address name="江西卫视">
+            http://183.207.249.15/PLTV/3/224/3221225537/index.m3u8
+        </address>
+        <address name="吉林卫视">
+            http://183.207.249.7/PLTV/3/224/3221225589/index.m3u8
+        </address>
+        <address name="黑龙江卫视高清">
+            http://183.207.249.15/PLTV/3/224/3221225652/index.m3u8
+        </address>
+        <address name="甘肃卫视">
+            http://183.207.249.7/PLTV/3/224/3221225590/index.m3u8
+        </address>
+        <address name="重庆卫视">
+            http://183.207.249.7/PLTV/3/224/3221225594/index.m3u8
+        </address>
+        <address name="天津卫视">
+            http://183.207.249.7/PLTV/3/224/3221225562/index.m3u8
+        </address>
+        <address name="天津卫视高清">
+            http://183.207.249.15/PLTV/3/224/3221226265/index.m3u8
+        </address>
+        <address name="东方卫视">
+            http://183.207.249.7/PLTV/3/224/3221225558/index.m3u8
+        </address>
+        <address name="东方卫视 高清">
+            http://183.207.249.15/PLTV/3/224/3221225558/index.m3u8
+        </address>
+        <address name="广西卫视">
+            http://183.207.249.7/PLTV/3/224/3221225554/index.m3u8
+        </address>
+        <address name="辽宁卫视">
+            http://183.207.249.7/PLTV/3/224/3221225566/index.m3u8
+        </address>
+        <address name="四川卫视 高清">
+            http://183.207.249.15/PLTV/3/224/3221225570/index.m3u8
+        </address>
+        <address name="贵州卫视">
+            http://183.207.249.8/PLTV/3/224/3221225540/index.m3u8
+        </address>
+        <address name="贵州卫视 高清">
+            http://183.207.249.15/PLTV/3/224/3221225540/index.m3u8
+        </address>
+        <address name="内蒙古卫视">
+            http://183.207.249.15/PLTV/3/224/3221225624/index.m3u8
+        </address>
+        <address name="青海卫视">
+            http://183.207.249.7/PLTV/3/224/3221225580/index.m3u8
+        </address>
+        <address name="新疆卫视">
+            http://183.207.249.15/PLTV/3/224/3221225523/index.m3u8
+        </address>
+        <address name="西藏卫视 高清">
+            http://183.207.249.15/PLTV/3/224/3221225579/index.m3u8
+        </address>
+    </type>
+    <type name="体育频道">
+        <address name="五星体育 高清">
+            http://183.207.255.190:80/live/program/live/ssty/2300000/mnf.m3u8
+        </address>
+        <address name="劲爆体育 高清">
+            http://183.207.255.190:80/live/program/live/jbty/1300000/mnf.m3u8
+        </address>
+        <address name="电子体育">
+            http://58.135.196.138:8090/live/A3A45E102C5F41afBD78A5E27FF0578F/A3A45E102C5F41afBD78A5E27FF0578F.m3u8
+        </address>
+    </type>
+    <type name="卡通动漫">
+        <address name="金鹰卡通">
+            http://183.207.255.190:80/live/program/live/jykt/1300000/mnf.m3u8
+        </address>
+        <address name="金鹰卡通 高清">
+            http://183.207.249.15/PLTV/3/224/3221225620/index.m3u8
+        </address>
+        <address name="炫动卡通">
+            http://183.207.255.190:80/live/program/live/xdkt/1300000/mnf.m3u8
+        </address>
+        <address name="嘉佳卡通">
+            http://183.207.255.190:80/live/program/live/jjkt/1300000/mnf.m3u8
+        </address>
+        <address name="动漫秀场">
+            http://183.207.255.190:80/live/program/live/dmxc/1300000/mnf.m3u8
+        </address>
+        <address name="动画王国">
+            http://183.207.249.7/PLTV/3/224/3221225555/index.m3u8
+        </address>
+        <address name="动画王国 高清">
+            http://183.207.249.15/PLTV/3/224/3221225555/index.m3u8
+        </address>
+    </type>
+    <type name="其他">
+        <address name="七彩戏剧">
+            http://183.207.255.190:80/live/program/live/qcxj/1300000/mnf.m3u8
+        </address>
+        <address name="星尚">
+            http://183.207.255.190:80/live/program/live/shss/1300000/mnf.m3u8
+        </address>
+        <address name="上海新闻">
+            http://183.207.255.190:80/live/program/live/xwzh/1300000/mnf.m3u8
+        </address>
+        <address name="上海纪实">
+            http://183.207.255.190:80/live/program/live/jspd/1300000/mnf.m3u8
+        </address>
+        <address name="上海娱乐">
+            http://183.207.255.190:80/live/program/live/ylpd/1300000/mnf.m3u8
+        </address>
+        <address name="上海电视剧">
+            http://183.207.255.190:80/live/program/live/dsjpd/1300000/mnf.m3u8
+        </address>
+        <address name="上海ICS外语频道">
+            http://183.207.255.190:80/live/program/live/wypd/1300000/mnf.m3u8
+        </address>
+        <address name="上海艺术人文">
+            http://183.207.255.190:80/live/program/live/ysrw/1300000/mnf.m3u8
+        </address>
+        <address name="徐州1套">
+            http://183.207.249.15/PLTV/3/224/3221225945/index.m3u8
+        </address>
+        <address name="徐州4套">
+            http://183.207.249.15/PLTV/3/224/3221225951/index.m3u8
+        </address>
+    </type>
+</resources>
