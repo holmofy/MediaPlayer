@@ -367,10 +367,12 @@ public class MusicPlayerActivity extends Activity implements ServiceConnection {
                 //因为有些控件数据需要在音乐准备完成后才能获取
                 initViewData();
                 //开始刷新界面
+                handler.removeCallbacksAndMessages(null);
                 handler.sendEmptyMessage(MSG_REFRESH);
                 break;
             case MusicServiceEvent.ACTION_MUSIC_START:
                 setContinueBtnImg();
+                handler.removeCallbacksAndMessages(null);
                 handler.sendEmptyMessage(MSG_REFRESH);
                 break;
             case MusicServiceEvent.ACTION_MUSIC_PAUSE:
