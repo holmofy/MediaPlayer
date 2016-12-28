@@ -60,6 +60,17 @@
     <option name="id" value="Android" />
   </component>
   <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$/InitActivity">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="http://svn.yixia.com/svn/yixia/vplayer/vitamio/VitamioBundle-5.0/vitamio" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="mySupportsUserInfoFilter" value="true" />
   </component>
   <component name="masterDetails">

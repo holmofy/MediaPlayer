@@ -15,6 +15,9 @@
 
 package org.xutils.common.util;
 
+/**
+ * 用来保存键值对的对象
+ */
 public class KeyValue {
     public final String key;
     public final Object value;
@@ -30,8 +33,10 @@ public class KeyValue {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         KeyValue keyValue = (KeyValue) o;
 
@@ -44,8 +49,12 @@ public class KeyValue {
         return key != null ? key.hashCode() : 0;
     }
 
+
     @Override
     public String toString() {
-        return "KeyValue{" + "key='" + key + '\'' + ", value=" + value + '}';
+        return "KeyValue{" +
+                "key='" + key + '\'' +
+                ", value=" + value +
+                '}';
     }
 }

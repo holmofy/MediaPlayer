@@ -8,6 +8,11 @@ import java.lang.reflect.Type;
  */
 public interface Callback {
 
+    /**
+     * 通用回调接口
+     *
+     * @param <ResultType>
+     */
     public interface CommonCallback<ResultType> extends Callback {
         void onSuccess(ResultType result);
 

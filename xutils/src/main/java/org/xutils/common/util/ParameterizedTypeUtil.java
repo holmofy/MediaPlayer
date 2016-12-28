@@ -6,16 +6,16 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 
+/**
+ * 参数化类型工具，泛型参数检测。比如Set<Type>
+ * 泛型反射
+ */
 public class ParameterizedTypeUtil {
 
     private ParameterizedTypeUtil() {
     }
 
-    public static Type getParameterizedType(
-
-            final Type ownerType,
-            final Class<?> declaredClass,
-            int paramIndex) {
+    public static Type getParameterizedType(final Type ownerType, final Class<?> declaredClass, int paramIndex) {
 
         Class<?> clazz = null;
         ParameterizedType pt = null;
@@ -55,9 +55,7 @@ public class ParameterizedTypeUtil {
         Class<?> superClass = clazz.getSuperclass();
         if (superClass != null) {
             if (declaredClass.isAssignableFrom(superClass)) {
-                return getTrueType(
-                        getParameterizedType(clazz.getGenericSuperclass(),
-                                declaredClass, paramIndex), tps, ats);
+                return getTrueType(getParameterizedType(clazz.getGenericSuperclass(), declaredClass, paramIndex), tps, ats);
             }
         }
 
@@ -67,11 +65,7 @@ public class ParameterizedTypeUtil {
     }
 
 
-    private static Type getTrueType(
-
-            Type type,
-            TypeVariable<?>[] typeVariables,
-            Type[] actualTypes) {
+    private static Type getTrueType(Type type, TypeVariable<?>[] typeVariables, Type[] actualTypes) {
 
         if (type instanceof TypeVariable<?>) {
             TypeVariable<?> tv = (TypeVariable<?>) type;

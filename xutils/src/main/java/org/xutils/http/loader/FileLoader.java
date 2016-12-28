@@ -6,6 +6,8 @@ import org.xutils.cache.DiskCacheEntity;
 import org.xutils.cache.DiskCacheFile;
 import org.xutils.cache.LruDiskCache;
 import org.xutils.common.Callback;
+
+import org.xutils.common.util.FileUtil;
 import org.xutils.common.util.IOUtil;
 import org.xutils.common.util.LogUtil;
 import org.xutils.common.util.ProcessLock;
@@ -74,7 +76,7 @@ public class FileLoader extends Loader<File> {
             targetFile = new File(tempSaveFilePath);
             if (targetFile.isDirectory()) {
                 // 防止文件正在写入时, 父文件夹被删除, 继续写入时造成偶现文件节点异常问题.
-                IOUtil.deleteFileOrDir(targetFile);
+                FileUtil.deleteFileOrDir(targetFile);
             }
             if (!targetFile.exists()) {
                 File dir = targetFile.getParentFile();
@@ -95,13 +97,13 @@ public class FileLoader extends Loader<File> {
                         byte[] checkBuffer = IOUtil.readBytes(in, 0, CHECK_SIZE);
                         if (!Arrays.equals(checkBuffer, fileCheckBuffer)) {
                             IOUtil.closeQuietly(fis); // 先关闭文件流, 否则文件删除会失败.
-                            IOUtil.deleteFileOrDir(targetFile);
+                            FileUtil.deleteFileOrDir(targetFile);
                             throw new RuntimeException("need retry");
                         } else {
                             contentLength -= CHECK_SIZE;
                         }
                     } else {
-                        IOUtil.deleteFileOrDir(targetFile);
+                        FileUtil.deleteFileOrDir(targetFile);
                         throw new RuntimeException("need retry");
                     }
                 } finally {
@@ -201,7 +203,7 @@ public class FileLoader extends Loader<File> {
                     File tempFile = new File(tempSaveFilePath);
                     long fileLen = tempFile.length();
                     if (fileLen <= CHECK_SIZE) {
-                        IOUtil.deleteFileOrDir(tempFile);
+                        FileUtil.deleteFileOrDir(tempFile);
                         range = 0;
                     } else {
                         range = fileLen - CHECK_SIZE;
@@ -251,7 +253,7 @@ public class FileLoader extends Loader<File> {
                     }
                     result = autoRename(result);
                 } else {
-                    IOUtil.deleteFileOrDir(result);
+                    FileUtil.deleteFileOrDir(result);
                     throw new IllegalStateException("cache file not found" + request.getCacheKey());
                 }
             } else {

@@ -47,7 +47,8 @@ public final class LruDiskCache {
     private static final long TRIM_TIME_SPAN = 1000;
 
     public synchronized static LruDiskCache getDiskCache(String dirName) {
-        if (TextUtils.isEmpty(dirName)) dirName = CACHE_DIR_NAME;
+        if (TextUtils.isEmpty(dirName))
+            dirName = CACHE_DIR_NAME;
         LruDiskCache cache = DISK_CACHE_MAP.get(dirName);
         if (cache == null) {
             cache = new LruDiskCache(dirName);
@@ -78,12 +79,12 @@ public final class LruDiskCache {
     }
 
     public DiskCacheEntity get(String key) {
-        if (!available || TextUtils.isEmpty(key)) return null;
+        if (!available || TextUtils.isEmpty(key))
+            return null;
 
         DiskCacheEntity result = null;
         try {
-            result = this.cacheDb.selector(DiskCacheEntity.class)
-                    .where("key", "=", key).findFirst();
+            result = this.cacheDb.selector(DiskCacheEntity.class).where("key", "=", key).findFirst();
         } catch (Throwable ex) {
             LogUtil.e(ex.getMessage(), ex);
         }
@@ -116,10 +117,7 @@ public final class LruDiskCache {
     }
 
     public void put(DiskCacheEntity entity) {
-        if (!available
-                || entity == null
-                || TextUtils.isEmpty(entity.getTextContent())
-                || entity.getExpires() < System.currentTimeMillis()) {
+        if (!available || entity == null || TextUtils.isEmpty(entity.getTextContent()) || entity.getExpires() < System.currentTimeMillis()) {
             return;
         }
 
@@ -180,7 +178,7 @@ public final class LruDiskCache {
     }
 
     public void clearCacheFiles() {
-        IOUtil.deleteFileOrDir(cacheDir);
+        FileUtil.deleteFileOrDir(cacheDir);
     }
 
     /**
@@ -230,10 +228,10 @@ public final class LruDiskCache {
                     result = cacheFile;
                     IOUtil.closeQuietly(destFile);
                     IOUtil.closeQuietly(processLock);
-                    IOUtil.deleteFileOrDir(destFile);
+                    FileUtil.deleteFileOrDir(destFile);
                 } else {
                     IOUtil.closeQuietly(cacheFile);
-                    IOUtil.deleteFileOrDir(cacheFile);
+                    FileUtil.deleteFileOrDir(cacheFile);
                 }
             }
         } else {
@@ -263,16 +261,13 @@ public final class LruDiskCache {
                     try {
                         int count = (int) cacheDb.selector(DiskCacheEntity.class).count();
                         if (count > LIMIT_COUNT + 10) {
-                            List<DiskCacheEntity> rmList = cacheDb.selector(DiskCacheEntity.class)
-                                    .orderBy("lastAccess").orderBy("hits")
-                                    .limit(count - LIMIT_COUNT).offset(0).findAll();
+                            List<DiskCacheEntity> rmList = cacheDb.selector(DiskCacheEntity.class).orderBy("lastAccess").orderBy("hits").limit(count - LIMIT_COUNT).offset(0).findAll();
                             if (rmList != null && rmList.size() > 0) {
                                 // delete cache files
                                 for (DiskCacheEntity entity : rmList) {
                                     String path = entity.getPath();
                                     if (!TextUtils.isEmpty(path)) {
-                                        if (deleteFileWithLock(path)
-                                                && deleteFileWithLock(path + TEMP_FILE_SUFFIX)) {
+                                        if (deleteFileWithLock(path) && deleteFileWithLock(path + TEMP_FILE_SUFFIX)) {
                                             // delete db entity
                                             cacheDb.delete(entity);
                                         }
@@ -288,15 +283,13 @@ public final class LruDiskCache {
                     // trim disk
                     try {
                         while (FileUtil.getFileOrDirSize(cacheDir) > diskCacheSize) {
-                            List<DiskCacheEntity> rmList = cacheDb.selector(DiskCacheEntity.class)
-                                    .orderBy("lastAccess").orderBy("hits").limit(10).offset(0).findAll();
+                            List<DiskCacheEntity> rmList = cacheDb.selector(DiskCacheEntity.class).orderBy("lastAccess").orderBy("hits").limit(10).offset(0).findAll();
                             if (rmList != null && rmList.size() > 0) {
                                 // delete cache files
                                 for (DiskCacheEntity entity : rmList) {
                                     String path = entity.getPath();
                                     if (!TextUtils.isEmpty(path)) {
-                                        if (deleteFileWithLock(path)
-                                                && deleteFileWithLock(path + TEMP_FILE_SUFFIX)) {
+                                        if (deleteFileWithLock(path) && deleteFileWithLock(path + TEMP_FILE_SUFFIX)) {
                                             // delete db entity
                                             cacheDb.delete(entity);
                                         }
@@ -345,10 +338,9 @@ public final class LruDiskCache {
                         if (fileList != null) {
                             for (File file : fileList) {
                                 try {
-                                    long count = cacheDb.selector(DiskCacheEntity.class)
-                                            .where("path", "=", file.getAbsolutePath()).count();
+                                    long count = cacheDb.selector(DiskCacheEntity.class).where("path", "=", file.getAbsolutePath()).count();
                                     if (count < 1) {
-                                        IOUtil.deleteFileOrDir(file);
+                                        FileUtil.deleteFileOrDir(file);
                                     }
                                 } catch (Throwable ex) {
                                     LogUtil.e(ex.getMessage(), ex);
@@ -369,7 +361,7 @@ public final class LruDiskCache {
             processLock = ProcessLock.tryLock(path, true);
             if (processLock != null && processLock.isValid()) { // lock
                 File file = new File(path);
-                return IOUtil.deleteFileOrDir(file);
+                return FileUtil.deleteFileOrDir(file);
             }
         } finally {
             IOUtil.closeQuietly(processLock);

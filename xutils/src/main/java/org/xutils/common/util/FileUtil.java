@@ -9,18 +9,27 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+/**
+ * 文件操作工具类
+ */
 public class FileUtil {
 
     private FileUtil() {
     }
 
+    /**
+     * 得到指定目录名的缓存目录
+     * 通常该目录在外部存储目录 /../Android/data/<packageName>/cache/dirName;
+     *
+     * @param dirName 目录名
+     * @return 目录对象
+     */
     public static File getCacheDir(String dirName) {
         File result;
         if (existsSdcard()) {
             File cacheDir = x.app().getExternalCacheDir();
             if (cacheDir == null) {
-                result = new File(Environment.getExternalStorageDirectory(),
-                        "Android/data/" + x.app().getPackageName() + "/cache/" + dirName);
+                result = new File(Environment.getExternalStorageDirectory(), "Android/data/" + x.app().getPackageName() + "/cache/" + dirName);
             } else {
                 result = new File(cacheDir, dirName);
             }
@@ -35,7 +44,7 @@ public class FileUtil {
     }
 
     /**
-     * 检查磁盘空间是否大于10mb
+     * 检查磁盘空间是否大于10MB
      *
      * @return true 大于
      */
@@ -50,9 +59,10 @@ public class FileUtil {
      * @return byte 单位 kb
      */
     public static long getDiskAvailableSize() {
-        if (!existsSdcard()) return 0;
+        if (!existsSdcard())
+            return 0;
         File path = Environment.getExternalStorageDirectory(); // 取得sdcard文件路径
-        StatFs stat = new StatFs(path.getAbsolutePath());
+        StatFs stat = new StatFs(path.getAbsolutePath());//用于获取该路径的相关信息
         long blockSize = stat.getBlockSize();
         long availableBlocks = stat.getAvailableBlocks();
         return availableBlocks * blockSize;
@@ -60,13 +70,26 @@ public class FileUtil {
         // (availableBlocks * blockSize)/1024 /1024 MIB单位
     }
 
+    /**
+     * Sdcard是否存在
+     *
+     * @return true 存在
+     */
     public static Boolean existsSdcard() {
         return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
     }
 
+    /**
+     * 获取指定文件或目录的大小
+     *
+     * @param file 文件或目录对象
+     * @return byte数
+     */
     public static long getFileOrDirSize(File file) {
-        if (!file.exists()) return 0;
-        if (!file.isDirectory()) return file.length();
+        if (!file.exists())
+            return 0;
+        if (!file.isDirectory())
+            return file.length();
 
         long length = 0;
         File[] list = file.listFiles();
@@ -90,11 +113,11 @@ public class FileUtil {
         boolean result = false;
         File from = new File(fromPath);
         if (!from.exists()) {
-            return result;
+            return false;
         }
 
         File toFile = new File(toPath);
-        IOUtil.deleteFileOrDir(toFile);
+        deleteFileOrDir(toFile);
         File toDir = toFile.getParentFile();
         if (toDir.exists() || toDir.mkdirs()) {
             FileInputStream in = null;
@@ -113,5 +136,27 @@ public class FileUtil {
             }
         }
         return result;
+    }
+
+    /**
+     * 删除文件或目录
+     *
+     * @param path 文件或者目录
+     * @return true 删除成功
+     */
+    public static boolean deleteFileOrDir(File path) {
+        if (path == null || !path.exists()) {
+            return true;
+        }
+        if (path.isFile()) {
+            return path.delete();
+        }
+        File[] files = path.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                deleteFileOrDir(file);
+            }
+        }
+        return path.delete();
     }
 }

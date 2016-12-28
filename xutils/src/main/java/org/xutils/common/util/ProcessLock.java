@@ -38,7 +38,7 @@ public final class ProcessLock implements Closeable {
 
     static {
         File dir = x.app().getDir(LOCK_FILE_DIR, Context.MODE_PRIVATE);
-        IOUtil.deleteFileOrDir(dir);
+        FileUtil.deleteFileOrDir(dir);
     }
 
     private ProcessLock(String lockName, File file, FileLock fileLock, Closeable stream, boolean writeMode) {
@@ -124,7 +124,7 @@ public final class ProcessLock implements Closeable {
                     LOCK_MAP.remove(lockName, fileLock.hashCode());
                     ConcurrentHashMap<Integer, ProcessLock> locks = LOCK_MAP.get(lockName);
                     if (locks == null || locks.isEmpty()) {
-                        IOUtil.deleteFileOrDir(file);
+                        FileUtil.deleteFileOrDir(file);
                     }
 
                     if (fileLock.channel().isOpen()) {
@@ -145,7 +145,8 @@ public final class ProcessLock implements Closeable {
 
     // 取得字符串的自定义hash值, 尽量保证255字节内的hash不重复.
     private static String customHash(String str) {
-        if (TextUtils.isEmpty(str)) return "0";
+        if (TextUtils.isEmpty(str))
+            return "0";
         double hash = 0.0;
         byte[] bytes = str.getBytes();
         for (int i = 0; i < str.length(); i++) {
@@ -180,9 +181,7 @@ public final class ProcessLock implements Closeable {
             FileChannel channel = null;
             Closeable stream = null;
             try {
-                File file = new File(
-                        x.app().getDir(LOCK_FILE_DIR, Context.MODE_PRIVATE),
-                        hash);
+                File file = new File(x.app().getDir(LOCK_FILE_DIR, Context.MODE_PRIVATE), hash);
                 if (file.exists() || file.createNewFile()) {
 
                     if (writeMode) {

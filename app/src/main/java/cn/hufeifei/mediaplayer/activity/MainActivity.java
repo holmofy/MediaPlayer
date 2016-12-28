@@ -189,7 +189,7 @@ public class MainActivity extends Activity {
                         break;
                     case 3:
                         //历史记录
-                        Toast.makeText(MainActivity.this, "该模块还在开发中", Toast.LENGTH_SHORT).show();
+                        showHistory();
                         break;
                     case 4:
                         //反馈问题
@@ -206,6 +206,13 @@ public class MainActivity extends Activity {
                 }
             }
         });
+    }
+
+    /**
+     * 显示历史记录页面
+     */
+    private void showHistory() {
+        startActivity(new Intent(this, HistoryActivity.class));
     }
 
     private void addShortcut(String name) {

@@ -200,21 +200,6 @@
                     android:pathPattern=".*\\.vob"/>
                 <data android:pathPattern=".*\\.m3u8"/>
             </intent-filter>
-            <intent-filter>
-                <action android:name="duokan.intent.action.VIDEO_PLAY"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-
-                <data android:scheme="file"/>
-                <data android:scheme="http"/>
-                <data android:scheme="https"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="duokan.intent.action.VIDEO_PLAY"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-
-                <data android:scheme="content"/>
-                <data android:mimeType="*/*"/>
-            </intent-filter>
         </activity>
         <!-- Vitamio初始化界面 -->
         <!-- Don't forgot InitActivity -->

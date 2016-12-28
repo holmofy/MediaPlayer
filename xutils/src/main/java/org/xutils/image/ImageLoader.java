@@ -17,6 +17,8 @@ import org.xutils.cache.LruDiskCache;
 import org.xutils.common.Callback;
 import org.xutils.common.task.Priority;
 import org.xutils.common.task.PriorityExecutor;
+
+import org.xutils.common.util.FileUtil;
 import org.xutils.common.util.IOUtil;
 import org.xutils.common.util.LogUtil;
 import org.xutils.ex.FileLockedException;
@@ -382,7 +384,7 @@ import java.util.concurrent.atomic.AtomicLong;
             }
             return result;
         } catch (IOException ex) {
-            IOUtil.deleteFileOrDir(rawData);
+            FileUtil.deleteFileOrDir(rawData);
             LogUtil.w(ex.getMessage(), ex);
         }
         return null;

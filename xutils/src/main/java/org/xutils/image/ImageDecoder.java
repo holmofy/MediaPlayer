@@ -18,6 +18,8 @@ import org.xutils.cache.DiskCacheFile;
 import org.xutils.cache.LruDiskCache;
 import org.xutils.common.Callback;
 import org.xutils.common.task.PriorityExecutor;
+
+import org.xutils.common.util.FileUtil;
 import org.xutils.common.util.IOUtil;
 import org.xutils.common.util.LogUtil;
 import org.xutils.x;
@@ -630,7 +632,7 @@ public final class ImageDecoder {
                 cacheFile = cacheFile.commit();
             }
         } catch (Throwable ex) {
-            IOUtil.deleteFileOrDir(cacheFile);
+            FileUtil.deleteFileOrDir(cacheFile);
             LogUtil.w(ex.getMessage(), ex);
         } finally {
             IOUtil.closeQuietly(cacheFile);
