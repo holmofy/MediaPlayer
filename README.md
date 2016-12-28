@@ -30,3 +30,8 @@
 ---
 
 ![image](https://github.com/holmofy/MediaPlayer/blob/master/screenshot/searchList.png)
+
+视频播放界面
+---
+
+![image](https://github.com/holmofy/MediaPlayer/blob/master/screenshot/VideoPlayer.png)
