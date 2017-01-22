@@ -1,8 +1,7 @@
 package cn.hufeifei.mediaplayer.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
 import android.text.format.Formatter;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import cn.hufeifei.mediaplayer.R;
@@ -56,7 +56,7 @@ public class LocalMediaAdapter extends BaseAdapter {
     /**
      * 获取适配器列表项
      *
-     * @return
+     * @return 数量
      */
     @Override
     public int getCount() {
@@ -73,13 +73,14 @@ public class LocalMediaAdapter extends BaseAdapter {
         return position;
     }
 
+
     /**
      * 获取列表项视图
      *
      * @param position    列表项位置
      * @param convertView 转换视图
-     * @param parent
-     * @return
+     * @param parent      父容器
+     * @return 列表项控件
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -106,6 +107,8 @@ public class LocalMediaAdapter extends BaseAdapter {
         return convertView;
     }
 
+    private List<Bitmap> thumbnailList;
+
     /**
      * 设置缩略图
      *
@@ -114,14 +117,18 @@ public class LocalMediaAdapter extends BaseAdapter {
      */
     private void setThumbnail(ImageView imgView, int position) {
         if (!isMusic) {
-            //视频文件
-//            holder.imgView.setImageResource(R.drawable.local_video_item_img);
-            Drawable drawable = imgView.getDrawable();
-            if (drawable instanceof BitmapDrawable) {
-                ((BitmapDrawable) drawable).getBitmap().recycle();//回收原有位图
+            if (thumbnailList == null) {
+                thumbnailList = new ArrayList<>(mediaItems.size());
             }
-            //获取视频缩略图并设置上去
-            imgView.setImageBitmap(ThumbnailUtil.getVideoThumbnail(mediaItems.get(position).getData(), ThumbnailUtil.MICRO_KIND));
+            Bitmap bmp;
+            try {
+                bmp = thumbnailList.get(position);
+            } catch (IndexOutOfBoundsException e) {
+                bmp = ThumbnailUtil.getVideoThumbnail(mediaItems.get(position).getData(), ThumbnailUtil.MICRO_KIND);
+                thumbnailList.add(position, bmp);
+            }
+            //获取视频缩略图后设置上去
+            imgView.setImageBitmap(bmp);
         } else {
             //没有专辑封面则设置默认图片
             imgView.setImageResource(R.drawable.local_music_item_img);
